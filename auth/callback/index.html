@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wait, That's Real - Auth Callback</title>
+<style>
+  body { margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center;
+         background:#0a0e17; color:#e8eef7; font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif; }
+  .card { width:min(620px,92vw); background:#111726; border:1px solid #1f2a3d; border-radius:14px;
+          padding:28px 26px; box-shadow:0 10px 40px rgba(0,0,0,.5); }
+  h1 { font-size:18px; margin:0 0 4px; color:#22d3ee; }
+  p { font-size:14px; line-height:1.5; color:#9fb0c7; margin:6px 0 16px; }
+  .row { margin:14px 0; }
+  .label { font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:#6b7c96; margin-bottom:6px; }
+  .val { display:flex; gap:8px; }
+  textarea { flex:1; resize:vertical; min-height:46px; background:#0a0e17; color:#e8eef7;
+             border:1px solid #243248; border-radius:8px; padding:10px 12px; font-family:ui-monospace,Menlo,Consolas,monospace; font-size:13px; }
+  button { background:#22d3ee; color:#06222a; border:0; border-radius:8px; padding:0 16px; font-weight:600; cursor:pointer; }
+  button:active { transform:translateY(1px); }
+  .err { color:#fda4af; }
+  .ok { color:#86efac; }
+  .muted { font-size:12px; color:#6b7c96; margin-top:18px; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <h1>Wait, That's Real - Authorization</h1>
+    <p id="status">Reading the response from the redirect...</p>
+    <div id="fields"></div>
+    <div class="muted">Copy the authorization code above and paste it back to complete the connection. You can close this tab after copying.</div>
+  </div>
+<script>
+  (function () {
+    var q = new URLSearchParams(window.location.search);
+    var status = document.getElementById('status');
+    var fields = document.getElementById('fields');
+    function box(label, value) {
+      var row = document.createElement('div'); row.className = 'row';
+      var l = document.createElement('div'); l.className = 'label'; l.textContent = label;
+      var v = document.createElement('div'); v.className = 'val';
+      var t = document.createElement('textarea'); t.readOnly = true; t.value = value;
+      var b = document.createElement('button'); b.textContent = 'Copy';
+      b.onclick = function () { t.select(); document.execCommand('copy'); b.textContent = 'Copied'; setTimeout(function(){b.textContent='Copy';}, 1500); };
+      v.appendChild(t); v.appendChild(b); row.appendChild(l); row.appendChild(v); fields.appendChild(row);
+    }
+    if (q.get('error')) {
+      status.className = 'err';
+      status.textContent = 'Authorization failed: ' + q.get('error') + (q.get('error_description') ? ' - ' + q.get('error_description') : '');
+      return;
+    }
+    var code = q.get('code');
+    if (code) {
+      status.className = 'ok';
+      status.textContent = 'Authorization received. Copy the code below.';
+      box('Authorization code', code);
+      if (q.get('scopes')) box('Scopes', q.get('scopes'));
+      if (q.get('state')) box('State', q.get('state'));
+    } else {
+      status.textContent = 'This is the OAuth callback endpoint for Wait, That\'s Real. No authorization code was present in the URL.';
+    }
+  })();
+</script>
+</body>
+</html>
