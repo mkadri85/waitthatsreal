@@ -11,7 +11,7 @@ These Terms of Service (the "Terms") govern the Wait, That's Real publishing
 application (the "Application"), operated by the owner of the Wait, That's Real
 channel (the "Operator").
 
-Contact: engmohamedkadri85@gmail.com
+Contact: engmohamedkadri85@gmail.com, eng_mohamedkadri@hotmail.com
 
 ## 1. Purpose
 
@@ -66,4 +66,4 @@ updating the "Last updated" date at the top of this document.
 ## 9. Contact
 
 For any question regarding these Terms, contact:
-engmohamedkadri85@gmail.com
+engmohamedkadri85@gmail.com, eng_mohamedkadri@hotmail.com

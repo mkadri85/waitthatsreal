@@ -12,7 +12,7 @@ This Privacy Policy explains how the Wait, That's Real publishing application
 the Wait, That's Real channel (the "Operator") for the sole purpose of creating and
 publishing the Operator's own short-form videos.
 
-Contact: engmohamedkadri85@gmail.com
+Contact: engmohamedkadri85@gmail.com, eng_mohamedkadri@hotmail.com
 
 ## 1. Scope
 
@@ -82,4 +82,4 @@ updating the "Last updated" date at the top of this document.
 ## 9. Contact
 
 For any question or request regarding this Privacy Policy, contact:
-engmohamedkadri85@gmail.com
+engmohamedkadri85@gmail.com, eng_mohamedkadri@hotmail.com

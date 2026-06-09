@@ -22,4 +22,4 @@ to the public and does not collect data from viewers or third parties.
 ## Contact
 
 For any question about these documents or the application, contact:
-engmohamedkadri85@gmail.com
+engmohamedkadri85@gmail.com, eng_mohamedkadri@hotmail.com
